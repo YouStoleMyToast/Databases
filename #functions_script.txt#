@@ -1,0 +1,7 @@
+SELECT title_id,
+ price,
+ 0.10 AS "Discount",
+ price * (1 - 0.10) AS "New price"
+ FROM titles;
+
+SELECT concat(au_lname, ', ' ,au_fname)  AS "Author name"  FROM authors  ORDER BY au_lname ASC, au_fname ASC;

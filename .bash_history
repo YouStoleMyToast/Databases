@@ -133,3 +133,35 @@ INSERT INTO hier VALUES('E11','WS5','E06');
 mysql
 clear
 mysql
+sudo mysql
+cd ../../etc/mysql/
+sudo emacs my.cnf
+mysql
+sudo mysql
+ls
+sudo emacs my.cnf
+cd
+sudo mysql
+ls
+cat lab5.txt 
+ls
+scp lab5.txt ./
+scp lab5.txt ./lab5-2.txt
+ls
+mysql
+ls
+scp nwarner@144.38.221.178/lab4.txt 
+git init 
+sudo apt install git
+git init
+ls
+rm lab5-2.txt 
+ls
+git add .
+git status
+git stash .*
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/YouStoleMyToast/Databases.git
+git push -u origin main
+mysql
