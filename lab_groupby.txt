@@ -1,0 +1,135 @@
+mysql> SELECT AVG(price) AS "Average Price" FROM titles;
+--------------
+SELECT AVG(price) AS "Average Price" FROM titles
+--------------
+
++---------------+
+| Average Price |
++---------------+
+|     18.387500 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(title_id) AS Qty FROM titles;
+--------------
+SELECT COUNT(title_id) AS Qty FROM titles
+--------------
+
++-----+
+| Qty |
++-----+
+|  13 |
++-----+
+1 row in set (0.00 sec)
+
+mysql> SELECT SUM(price*sales) AS Volume FROM titles;
+--------------
+SELECT SUM(price*sales) AS Volume FROM titles
+--------------
+
++-------------+
+| Volume      |
++-------------+
+| 41428860.77 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT type,AVG(pages) as "Average Pages" FROM titles GROUP BY type;
+--------------
+SELECT type,AVG(pages) as "Average Pages" FROM titles GROUP BY type
+--------------
+
++------------+---------------+
+| type       | Average Pages |
++------------+---------------+
+| biography  |      437.6667 |
+| children   |       54.0000 |
+| computer   |     1226.0000 |
+| history    |      307.6667 |
+| psychology |      512.3333 |
++------------+---------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT type,AVG(pages) as "Average Pages" FROM titles GROUP BY type HAVING AVG(pages) >= 500;
+--------------
+SELECT type,AVG(pages) as "Average Pages" FROM titles GROUP BY type HAVING AVG(pages) >= 500
+--------------
+
++------------+---------------+
+| type       | Average Pages |
++------------+---------------+
+| computer   |     1226.0000 |
+| psychology |      512.3333 |
++------------+---------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT type,AVG(pages) as "Average Pages" FROM titles GROUP BY type HAVING AVG(pages) >= 500 ORDER BY AVG(pages) ASC;
+--------------
+SELECT type,AVG(pages) as "Average Pages" FROM titles GROUP BY type HAVING AVG(pages) >= 500 ORDER BY AVG(pages) ASC
+--------------
+
++------------+---------------+
+| type       | Average Pages |
++------------+---------------+
+| psychology |      512.3333 |
+| computer   |     1226.0000 |
++------------+---------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(DISTINCT(state)) AS "Number of States" FROM authors;
+--------------
+SELECT COUNT(DISTINCT(state)) AS "Number of States" FROM authors
+--------------
+
++------------------+
+| Number of States |
++------------------+
+|                4 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT state, COUNT(*) AS "# of Authors" FROM authors GROUP BY state;
+--------------
+SELECT state, COUNT(*) AS "# of Authors" FROM authors GROUP BY state
+--------------
+
++-------+--------------+
+| state | # of Authors |
++-------+--------------+
+| CA    |            3 |
+| CO    |            1 |
+| FL    |            1 |
+| NY    |            2 |
++-------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT type, COUNT(*) AS "# of books" FROM titles WHERE type != 'children' GROUP BY type;
+--------------
+SELECT type, COUNT(*) AS "# of books" FROM titles WHERE type != 'children' GROUP BY type
+--------------
+
++------------+------------+
+| type       | # of books |
++------------+------------+
+| biography  |          4 |
+| computer   |          1 |
+| history    |          3 |
+| psychology |          3 |
++------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT type, COUNT(*) AS "# of books" FROM titles WHERE type != 'children' GROUP BY type HAVING COUNT(*) >= 3;
+--------------
+SELECT type, COUNT(*) AS "# of books" FROM titles WHERE type != 'children' GROUP BY type HAVING COUNT(*) >= 3
+--------------
+
++------------+------------+
+| type       | # of books |
++------------+------------+
+| biography  |          4 |
+| history    |          3 |
+| psychology |          3 |
++------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> exit

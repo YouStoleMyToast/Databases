@@ -165,3 +165,46 @@ git branch -M main
 git remote add origin https://github.com/YouStoleMyToast/Databases.git
 git push -u origin main
 mysql
+ls
+emacs functions_script.txt
+ls
+mysql
+ls
+cat lab_functions.txt 
+mysql
+ls
+cat lab_functions.txt 
+ls
+mysql
+cat lab_functions.txt 
+git status
+git add .
+git status
+git commit -m "lab_funcitons"
+git push
+mysql
+clear
+cat lab_functions.txt 
+git add .
+git commit -m "update"
+git push
+git status
+ls
+vim lab_functions.txt 
+emacs lab_functions.txt 
+ls
+mysql
+ls
+cat lab_functions.txt 
+git add .
+git commit -m "update"
+git push
+ls
+vim lab_functions.txt 
+ls
+rm lab_functions.txt 
+mysql
+git add .
+git commit -m "update"
+git push
+mysql
