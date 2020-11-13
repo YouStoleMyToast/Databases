@@ -1,0 +1,73 @@
+--------------
+SELECT J.jid FROM spj J WHERE J.sid IN (SELECT sid FROM s WHERE city = "London")
+--------------
+
+jid
+J1
+J4
+J3
+J7
+4 rows in set
+
+--------------
+SELECT DISTINCT jps.jid FROM spj jps WHERE (jps.pid) IN (SELECT P.pid FROM p P WHERE P.city = "London")
+--------------
+
+jid
+J1
+J4
+J2
+J3
+J7
+5 rows in set
+
+--------------
+SELECT DISTINCT J.jid FROM spj J JOIN p P ON J.pid = P.pid WHERE P.color = "Red"
+--------------
+
+jid
+J1
+J4
+J2
+J3
+J7
+5 rows in set
+
+--------------
+SELECT DISTINCT jps.jid FROM spj jps WHERE (jps.pid) IN (SELECT P.pid FROM p P WHERE P.color = "Red")
+--------------
+
+jid
+J1
+J4
+J2
+J3
+J7
+5 rows in set
+
+--------------
+SELECT jid, pid, sid, qty FROM spj WHERE qty >= (SELECT AVG(qty) FROM spj)
+--------------
+
+jid	pid	sid	qty
+J4	P1	S1	700
+J1	P3	S2	400
+J4	P3	S2	500
+J5	P3	S2	600
+J6	P3	S2	400
+J7	P3	S2	800
+J2	P4	S3	500
+J5	P5	S5	500
+J4	P4	S5	800
+J4	P5	S5	400
+J4	P6	S5	500
+11 rows in set
+
+--------------
+SELECT DISTINCT F.sid FROM spj F WHERE NOT EXISTS (SELECT P.pid FROM spj P WHERE NOT EXISTS (SELECT F.sid FROM spj E WHERE E.sid = F.sid AND E.pid = P.pid))
+--------------
+
+sid
+S5
+1 row in set
+

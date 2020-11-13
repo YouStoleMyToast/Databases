@@ -208,3 +208,18 @@ git add .
 git commit -m "update"
 git push
 mysql
+ls
+mysql
+ls
+rm lab_groupby.txt 
+mysql
+rm lab_groupby.txt 
+mysql
+cat lab_groupby.txt 
+git add .
+git status
+git commit -m "update"
+git push
+git add .
+git commit -m "update"
+git push

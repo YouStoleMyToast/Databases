@@ -1,0 +1,8 @@
+use spj;
+tee labSubSelects_result.txt
+SELECT J.jid FROM spj J WHERE J.sid IN (SELECT sid FROM s WHERE city = "London");
+SELECT DISTINCT jps.jid FROM spj jps WHERE (jps.pid) IN (SELECT P.pid FROM p P WHERE P.city = "London");
+SELECT DISTINCT J.jid FROM spj J JOIN p P ON J.pid = P.pid WHERE P.color = "Red";
+SELECT DISTINCT jps.jid FROM spj jps WHERE (jps.pid) IN (SELECT P.pid FROM p P WHERE P.color = "Red");
+SELECT jid, pid, sid, qty FROM spj WHERE qty >= (SELECT AVG(qty) FROM spj);
+SELECT DISTINCT F.sid FROM spj F WHERE NOT EXISTS (SELECT P.pid FROM spj P WHERE NOT EXISTS (SELECT F.sid FROM spj E WHERE E.sid = F.sid AND E.pid = P.pid));
