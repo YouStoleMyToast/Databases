@@ -223,3 +223,45 @@ git push
 git add .
 git commit -m "update"
 git push
+mysql
+clear
+ls
+curl http://cit.dixie.edu/it/4300/notes/spj.sql
+sudo apt install curl
+curl http://cit.dixie.edu/it/4300/notes/spj.sql
+ls
+mysql < curl http://cit.dixie.edu/it/4300/notes/spj.sql
+curl -h
+curl -o jobs_db http://cit.dixie.edu/it/4300/notes/spj.sql
+ls
+cat jobs_db 
+mysql < jobs_db
+mysql
+touch lab_subSelects.txt
+emacs lab_subSelects.txt 
+mysql
+ls
+emacs lab_subSelects.txt
+mysql
+emacs lab_subSelects.txt
+mysql
+emacs lab_subSelects.txt
+mysql
+emacs lab_subSelects.txt
+mysql
+vim lab_subSelects.txt
+emacs lab_subSelects.txt
+mysql < lab_subSelects.txt
+mysql
+emacs lab_subSelects.txt
+mysql
+emacs lab_subSelects.txt
+rm labSubSelects_result.txt 
+mysql < lab_subSelects.txt
+clear
+cat labSubSelects_result.txt 
+git status
+git add .
+git status
+git commit -m "update"
+git push

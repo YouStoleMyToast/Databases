@@ -1,0 +1,52 @@
+--------------
+SELECT DISTINCT city FROM s UNION SELECT DISTINCT city FROM j
+--------------
+
+city
+London
+Paris
+Athens
+Rome
+Oslo
+5 rows in set
+
+--------------
+SELECT DISTINCT city FROM s UNION SELECT DISTINCT city FROM j UNION SELECT DISTINCT city FROM p
+--------------
+
+city
+London
+Paris
+Athens
+Rome
+Oslo
+5 rows in set
+
+--------------
+SELECT DISTINCT s.city FROM s JOIN j ON s.city = j.city
+--------------
+
+city
+Paris
+Athens
+London
+3 rows in set
+
+--------------
+SELECT DISTINCT s.city FROM s JOIN j ON s.city = j.city JOIN p ON s.city = p.city
+--------------
+
+city
+Paris
+London
+2 rows in set
+
+--------------
+SELECT s.city FROM s WHERE s.city NOT IN (SELECT city FROM p) UNION SELECT j.city FROM j WHERE j.city NOT IN (SELECT city FROM p)
+--------------
+
+city
+Athens
+Oslo
+2 rows in set
+

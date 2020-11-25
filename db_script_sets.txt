@@ -1,0 +1,10 @@
+use spj;
+tee sets_output.txt
+    SELECT DISTINCT city FROM s UNION SELECT DISTINCT city FROM j;
+    SELECT DISTINCT city FROM s UNION SELECT DISTINCT city FROM j UNION SELECT DISTINCT city FROM p;
+    SELECT DISTINCT s.city FROM s JOIN j ON s.city = j.city;
+    SELECT DISTINCT s.city FROM s JOIN j ON s.city = j.city JOIN p ON s.city = p.city;
+    SELECT s.city FROM s WHERE s.city NOT IN (SELECT city FROM p) UNION SELECT j.city FROM j WHERE j.city NOT IN (SELECT city FROM p);
+
+
+
