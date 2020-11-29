@@ -1,0 +1,33 @@
+DROP DATABASE IF EXISTS Taxes;
+CREATE DATABASE Taxes;
+
+
+DROP TABLE IF EXISTS TaxAuthority;
+CREATE TABLE TaxAuthority (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    TaxAuthority TEXT,
+    TaxArea' TEXT,
+);
+INSERT INTO TaxAuthority (TaxAuthority,TaxArea) VALUES ('city1'     , 'city1');
+INSERT INTO TaxAuthority (TaxAuthority,TaxArea) VALUES ('city2'     , 'city2');
+INSERT INTO TaxAuthority (TaxAuthority,TaxArea) VALUES ('city3'     , 'city3');
+INSERT INTO TaxAuthority (TaxAuthority,TaxArea) VALUES ('county1'   , 'city1');
+INSERT INTO TaxAuthority (TaxAuthority,TaxArea) VALUES ('county1'   , 'city2');
+INSERT INTO TaxAuthority (TaxAuthority,TaxArea) VALUES ('county2'   , 'city3');
+INSERT INTO TaxAuthority (TaxAuthority,TaxArea) VALUES ('state1'    , 'city1');
+INSERT INTO TaxAuthority (TaxAuthority,TaxArea) VALUES ('state1'    , 'city2');
+INSERT INTO TaxAuthority (TaxAuthority,TaxArea) VALUES ('state1'    , 'city3');
+
+DROP TABLE IF EXISTS TaxRates;
+CREATE TABLE TaxRates (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    TaxAuthority TEXT,	
+    AuthTaxRate DECIMAL(2,1), 
+);
+INSERT INTO TaxRates (TaxAuthority,AuthTaxRate) VALUES ( 'city1'    ,	1    );     
+INSERT INTO TaxRates (TaxAuthority,AuthTaxRate) VALUES ( 'city2'    ,	2.0  );       
+INSERT INTO TaxRates (TaxAuthority,AuthTaxRate) VALUES ( 'city3'    ,	1.9  );       
+INSERT INTO TaxRates (TaxAuthority,AuthTaxRate) VALUES ( 'county1'  ,	2.5  );       
+INSERT INTO TaxRates (TaxAuthority,AuthTaxRate) VALUES ( 'state1'   ,	1.1  );      
+
+SELECT * FROM TaxAuthority WHERE TaxArea = 'city2';
