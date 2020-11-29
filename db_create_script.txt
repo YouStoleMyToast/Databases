@@ -1,0 +1,56 @@
+source books_script.txt
+
+
+tee lab_inserts_submition.txt
+
+DROP TABLE IF EXISTS abc_titles;
+CREATE TABLE abc_titles AS (SELECT * FROM titles WHERE type = 'psychology');
+
+DROP TABLE IF EXISTS abc_publishers;
+CREATE TABLE abc_publishers AS (SELECT * FROM publishers WHERE pub_id IN (SELECT pub_id FROM titles WHERE type = 'psychology'));
+
+DROP TABLE IF EXISTS abc_authors;
+CREATE TABLE abc_authors AS (SELECT * FROM authors WHERE au_id IN (SELECT au_id FROM title_authors WHERE title_id IN (SELECT title_id FROM titles WHERE type = 'psychology')));
+
+DROP TABLE IF EXISTS abc_title_authors;
+CREATE TABLE abc_title_authors AS (SELECT * FROM title_authors WHERE title_id IN (SELECT title_id FROM titles WHERE type = 'psychology'));
+
+
+
+
+INSERT INTO titles VALUES('T14','OCA',NULL,'P02',NULL,29.95,NULL,NULL,0);
+INSERT INTO titles VALUES('T15','OCP',NULL,'P02',NULL,39.95,NULL,NULL,0);
+INSERT INTO titles VALUES('T16','A+',NULL,'P02',NULL,29.95,NULL,NULL,0);
+INSERT INTO titles VALUES('T17','NET+',NULL,'P02',NULL,29.95,NULL,NULL,0);
+INSERT INTO titles VALUES('T18','LINUX+',NULL,'P02',NULL,29.95,NULL,NULL,0);
+
+UPDATE titles SET type = 'computer' WHERE type IS NULL;
+UPDATE titles SET sales = '0' WHERE sales IS NULL AND type = 'computer';
+UPDATE titles SET pubdate = DATE '2011-01-01' WHERE pubdate IS NULL AND type = 'COMPUTER';
+
+UPDATE titles SET price = price * .8 WHERE type = 'history';
+
+INSERT INTO title_authors VALUES('T14','A05',1,1.00);
+INSERT INTO title_authors VALUES('T15','A05',1,1.00);
+INSERT INTO title_authors VALUES('T16','A05',1,1.00);
+INSERT INTO title_authors VALUES('T17','A05',1,1.00);
+INSERT INTO title_authors VALUES('T18','A05',1,1.00);
+
+
+
+DELETE FROM titles WHERE type = 'psychology';
+
+
+DELETE FROM title_authors WHERE title_id NOT IN (SELECT title_id FROM titles);
+DELETE FROM authors WHERE au_id NOT IN (SELECT au_id FROM title_authors);
+DELETE FROM publishers WHERE pub_id NOT IN (SELECT pub_id FROM titles);
+
+SELECT * FROM publishers;
+SELECT * FROM authors;
+SELECT * FROM title_authors;
+SELECT * FROM titles;
+
+SELECT * FROM abc_publishers;
+SELECT * FROM abc_authors;
+SELECT * FROM abc_title_authors;
+SELECT * FROM abc_titles;
