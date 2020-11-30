@@ -275,3 +275,25 @@ git add .
 git commit -m "update"
 git push
 mysql
+emacs db_create_script.txt
+mysql < db_create_script.txt
+mysql  < 
+ls
+cat lab_inserts_submition.txt 
+rm lab_inserts_submition.txt 
+mysql < db_create_script.txt
+rm lab_inserts_submition.txt 
+mysql
+git status
+git add .
+git commit -m "update"
+git push
+ls
+cat books_script.txt 
+git pull
+mysql 
+ls
+emacs hard_script.txt 
+cat books_script.txt 
+emacs hard_script.txt 
+emacs hard_script.txt 
